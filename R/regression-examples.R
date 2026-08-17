@@ -132,3 +132,14 @@ tbl_merge(list(tbl_no_int, tbl_int),
 )
 
 
+#Create a univariate regression table
+tbl_uvregression(
+		nlsy,
+		x = sex_cat,
+		include = c(
+				nsibs,
+				starts_with("sleep"),
+				income
+		),
+		method = lm
+)
