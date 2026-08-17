@@ -143,3 +143,10 @@ tbl_uvregression(
 		),
 		method = lm
 )
+
+#Poisson regression
+poisson_model <- glm(nsibs ~ sex_cat + age_bir + income,
+										 data = nlsy, family = poisson()
+										 )
+
+#
