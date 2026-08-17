@@ -103,17 +103,17 @@ tbl_summary(
 				sleep_wknd ~ "Sleep on Weekends"
 		)) |>
 
-#Adding a P-value
+#Adding a P-value:
 add_p(test = list(all_continuous() ~ "t.test",
 									all_categorical() ~ "chisq.test"
 									)) |>
 
-#Combining both sexes
+#Combining both sexes:
 add_overall(col_label = "**Total** N {N}") |>
 
-#10th and 90th percentiles of Income with 3 digits, Min and Max with 1 digit of sleep
+#10th and 90th percentiles of Income with 3 digits, Min and Max with 1 digit of sleep:
 
-#Adding a footnote
+#Adding a footnote:
 modify_footnote_body(
 		footnote = "https://www.nlsinfo.org/content/cohorts/nlsy79/topical-guide/household/race-ethnicity-immigration-data",
 		columns = "label",
