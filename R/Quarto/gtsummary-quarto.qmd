@@ -63,7 +63,7 @@ tbl_summary(
 ```{r}
 #| label: tbl-one
 #| tbl-cap: "This is a table of a dataframe"
-tbl_summary(
+sleep_table <- tbl_summary(
 			nlsy, 
 			by = sex_cat, 
 			include = c(
@@ -88,3 +88,11 @@ sleep_median
 
 ```
 The median number of hours of sleep was `r sleep_median`
+
+```{r}
+sleep_table$table_body
+
+inline_text(sleep_table, variable = "sleep_wknd",
+						column = "stat_0")
+```
+The average sleep on weekends was `r inline_text(sleep_table, variable = "sleep_wknd", column = "stat_0")`.
