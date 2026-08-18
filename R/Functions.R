@@ -21,4 +21,10 @@ raise <- function(x,power) {
 
 raise(x = 2, power = 3)
 
+#no value for power included
+raise <- function(x, power = 2){
+	raised_value <- x^power
+	return(raised_value)
+}
 
+raise(x = 6)
