@@ -149,4 +149,38 @@ poisson_model <- glm(nsibs ~ sex_cat + age_bir + income,
 										 data = nlsy, family = poisson()
 										 )
 
-#
+tbl_regression(
+	poisson_model,
+	exponentiate = TRUE,
+	label = list(
+		sex_cat ~ "Sex",
+		age_bir ~ "Age",
+		income ~ "Income (USD)")
+)
+
+#Risk ratios and confidence intervals
+logbinomial_model <- glm(glasses ~ eyesight_cat + sex_cat,
+											data = nlsy, family = binomial(link = "log")
+)
+
+logistic_table <- tbl_regression(
+	logistic_model,
+	exponentiate = TRUE,
+	label = list(
+		sex_cat ~ "Sex",
+		eyesight_cat ~ "Eyesight"
+	)
+)
+
+logbinomial_table <- tbl_regression(
+	logbinomial_model,
+	exponentiate = TRUE,
+	label = list(
+		sex_cat ~ "Sex",
+		eyesight_cat ~ "Eyesight"
+	)
+)
+
+tbl_merge(list(logistic_table, logbinomial_table),
+					tab_spanner = c("**Logistic**", "**Log-binomial**")
+)
