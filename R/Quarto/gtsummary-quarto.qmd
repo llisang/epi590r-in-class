@@ -51,6 +51,8 @@ tbl_summary(
 ```
 
 ```{r}
+#| eval: false
+#| error: true
 tbl_summary(
   NLSY,
   by = sex_cat,
