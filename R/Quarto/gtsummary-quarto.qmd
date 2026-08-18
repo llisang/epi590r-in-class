@@ -85,5 +85,6 @@ add_overall()
 ```{r}
 sleep_median <- median(nlsy$sleep_wknd, na.rm = TRUE)
 sleep_median
-```
 
+```
+The median number of hours of sleep was `r sleep_median`
