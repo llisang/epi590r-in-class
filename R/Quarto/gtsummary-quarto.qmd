@@ -81,3 +81,9 @@ missing_text = "Missing"
 add_overall()
 ```
 @tbl-one is a summary of the data 
+
+```{r}
+sleep_median <- median(nlsy$sleep_wknd, na.rm = TRUE)
+sleep_median
+```
+
