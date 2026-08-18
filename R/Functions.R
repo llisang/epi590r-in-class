@@ -28,3 +28,28 @@ raise <- function(x, power = 2){
 }
 
 raise(x = 6)
+
+#function that takes a vector of numbers and returns the standard deviation manually
+x <- c(25, 50, 75, 100)
+
+demeaned_x <- x - mean(x)
+squared_demeaned_x <- demeaned_x^2
+sum_of_squares <- sum(squared_demeaned_x)
+n_minus_1 <- length(x)-1
+std_dev <- sqrt(sum_of_squares/n_minus_1)
+
+new_sd <- function(x){
+	demeaned_x <- x - mean(x)
+	squared_demeaned_x <- demeaned_x^2
+	sum_of_squares <- sum(squared_demeaned_x)
+	n_minus_1 <- length(x)-1
+	std_dev <- sqrt(sum_of_squares/n_minus_1)
+	return(std_dev)
+}
+
+new_sd(x)
+sd(x)
+
+
+
+}
