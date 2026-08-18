@@ -50,6 +50,22 @@ new_sd <- function(x){
 new_sd(x)
 sd(x)
 
+#modify your function to remove the NA values before calculating the standard deviation
+new_sd <- function(x, na.rm = TRUE){
+	if (na.rm) {new_x <- na.omit(x)}
+	else {new_x <- x}
 
+	if(length(new_x) <= 1) {return_val <- NA}
+	else {
+				demeaned_x <- new_x - mean(new_x)
+				squared_demeaned_x <- demeaned_x^2
+				sum_of_squares <- sum(squared_demeaned_x)
+				n_minus_1 <- length(new_x)-1
+				std_dev <- sqrt(sum_of_squares/n_minus_1)
+				}
 
+	return(std_dev)
 }
+
+new_sd(nlsy$income)
+sd(nlsy$income)
